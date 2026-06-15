@@ -32,10 +32,6 @@ exclude:
   - 'Gemfile.lock'
   - '*.gemspec'
   - 'README.md'
-  - 'node_modules'
-  - 'build'
-  - 'gulpfile.js'
-  - 'package.json'
 
 keep_files:
   - 'CNAME'

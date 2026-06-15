@@ -1,0 +1,20 @@
+# OS junk
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Jekyll build artifacts
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node (only relevant if a future build pipeline is reintroduced)
+node_modules/
+npm-debug.log*
