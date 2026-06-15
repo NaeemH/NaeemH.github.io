@@ -1,0 +1,25 @@
+- name: NemoNet
+  url: https://github.com/NaeemH/NemoNet
+  description: Convolutional neural net trained to recognize wildlife fish &mdash; including everyone's favorite clownfish.
+  used:
+    - thing: Python
+    - thing: TensorFlow
+    - thing: Keras
+    - thing: NumPy
+
+- name: SignReader
+  url: https://github.com/NaeemH/SignReader
+  description: Sign language interpreter built on top of the Leap Motion sensor &mdash; captures hand gestures and translates them into text in real time.
+  used:
+    - thing: Java
+    - thing: Leap Motion SDK
+
+- name: Tourifai
+  url: https://github.com/NaeemH/Tourifai
+  description: iOS app that uses the Clarifai, Maps, and Wikipedia APIs to recognize national landmarks from a picture, then surface their location plus a short summary.
+  used:
+    - thing: Objective-C
+    - thing: iOS SDK
+    - thing: Clarifai API
+    - thing: MapKit
+    - thing: Wikipedia API
