@@ -1,12 +1,22 @@
-- company: Microsoft Advertising
-  url: https://ads.microsoft.com/
+- company: Microsoft AI
+  url: https://www.microsoft.com/en-us/ai
   time: June 2022 - Present
-  position: Software Engineer II
+  position: Senior Software Engineer
 
-- company: Xandr (formerly AppNexus)
+- company: Xandr
   url: https://www.xandr.com/
-  time: March 2019 - June 2022
-  position: Software Engineer II
+  time: February 2021 - June 2022
+  position: System Operations Engineer II
+
+- company: Xandr
+  url: https://www.xandr.com/
+  time: January 2020 - February 2021
+  position: System Operations Engineer I
+
+- company: Xandr
+  url: https://www.xandr.com/
+  time: March 2019 - January 2020
+  position: Associate System Operations Engineer
 
 - company: RUniteCS
   url: https://www.linkedin.com/company/runitecs/about/
@@ -16,14 +26,14 @@
 - company: AppNexus
   url: https://www.linkedin.com/company/appnexus/
   time: Jun 2018 - Aug 2018
-  position: Site Reliability Engineering Intern
+  position: System Operations Intern
 
-- company: Prudential Experimental Laboratory
-  url: https://www.prudential.com/#invest
+- company: Prudential Financial
+  url: https://www.prudential.com/
   time: May 2017 - Aug 2017
   position: Software Engineering Intern
 
-- company: Viacom Media Networks
+- company: Viacom
   url: https://www.viacomcbs.com/
   time: Jan 2016 - Sep 2016
   position: Software Engineering Intern

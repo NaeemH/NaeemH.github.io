@@ -1,31 +1,38 @@
 languages:
-  - item: Python (2.7, 3.x)
+  - item: Python (3.x)
   - item: Bash
-  - item: Java
-  - item: HTML / CSS
-  - item: C
-  - item: MySQL / PostgreSQL
-  - item: JavaScript (ES6)
+  - item: TypeScript
+  - item: Go
+  - item: HCL (Terraform)
+  - item: SQL
+  - item: JavaScript
 
 dm:
+  - item: Azure
   - item: Kubernetes
   - item: Docker
+  - item: Terraform / CDKTF
+  - item: Bicep / ARM
   - item: Puppet
-  - item: NFS / Ceph
-  - item: Artifactory
-  - item: OpenSUSE Build Service
+  - item: Ansible
+  - item: Helm
 
 wm:
-  - item: Git (Github, Bitbucket)
-  - item: Nagios / Opsgenie
-  - item: Prometheus
-  - item: Grafana / SumoLogic
+  - item: Git (GitHub, Azure DevOps)
+  - item: GitHub Actions
+  - item: Azure DevOps Pipelines
+  - item: Geneva / Grafana / Prometheus
+  - item: ICM / Opsgenie
   - item: Jira / Confluence
-  - item: Slack / Hipchat
-  - item: Jenkins
+
+ai:
+  - item: GitHub Copilot
+  - item: Claude
+  - item: Gemini
+  - item: GPT
 
 ose:
-  - item: Windows
+  - item: Ubuntu (20.04 - 24.04)
+  - item: RHEL / Debian
   - item: macOS
-  - item: Ubuntu (14.04 - 20.04)
-  - item: RHEL (CentOS 6.9)
+  - item: Windows
