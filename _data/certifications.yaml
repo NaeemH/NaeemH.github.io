@@ -1,6 +1,6 @@
 certifications:
-  - item: Microsoft Certified: Azure Fundamentals (AZ-900)
-  - item: Microsoft Certified: Azure Administrator Associate (AZ-104)
+  - item: "Microsoft Certified: Azure Fundamentals (AZ-900)"
+  - item: "Microsoft Certified: Azure Administrator Associate (AZ-104)"
   - item: Sumo Logic Certified Fundamentals
   - item: Sumo Logic Certified Power User
   - item: Sumo Logic Certified Power Admin
