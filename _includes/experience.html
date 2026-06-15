@@ -11,6 +11,13 @@
           <div class="job__time">{{job.time}}</div>
         </div>
         <div class="job__position">{{job.position}}</div>
+        {% if job.description %}
+        <ul class="job__description">
+          {% for bullet in job.description %}
+          <li>{{ bullet }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
       </div>
       {% endfor %}
     </div>

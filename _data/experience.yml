@@ -2,38 +2,77 @@
   url: https://www.microsoft.com/en-us/ai
   time: June 2022 - Present
   position: Senior Software Engineer
+  description:
+    - Lead reliability and automation for a 10k+ machine global ad-serving fleet across multiple Azure regions
+    - Author Terraform / CDKTF infrastructure-as-code that provisions and lifecycles VMSS, AKS, networking, and storage primitives
+    - Drive incident response and capacity remediation playbooks, partnering with Azure capacity teams on zonal vs regional allocator strategies
+    - Build internal tooling for fleet observability (Geneva, Prometheus) and AI-assisted runbook execution (Copilot, Claude, GPT)
+    - Mentor junior engineers and shape operational standards through code reviews and design docs
 
 - company: Xandr
   url: https://www.xandr.com/
   time: February 2021 - June 2022
   position: System Operations Engineer II
+  description:
+    - Scaled critical ad-serving systems through the Microsoft acquisition transition, migrating Puppet-managed infra toward declarative IaC
+    - Designed and rolled out monitoring + alerting for high-throughput pipelines using Sumo Logic and PagerDuty
+    - Automated repetitive ops toil (cluster rebuilds, capacity scaling, security patching), reducing weekly on-call interrupts
+    - Led postmortems and contributed to multi-team reliability initiatives around config drift and deploy safety
+    - Onboarded and mentored newer engineers on the team's CentOS / Ansible / Puppet stack
 
 - company: Xandr
   url: https://www.xandr.com/
   time: January 2020 - February 2021
   position: System Operations Engineer I
+  description:
+    - Owned the health of thousands of Linux hosts powering real-time bidding
+    - Authored Puppet and Ansible modules for repeatable, drift-free configuration management
+    - Participated in the 24/7 on-call rotation, responding to incidents across compute, network, and storage layers
+    - Built lightweight Python and Bash tooling to streamline daily ops tasks
+    - Contributed to migration projects moving services off legacy CentOS toward modern host stacks
 
 - company: Xandr
   url: https://www.xandr.com/
   time: March 2019 - January 2020
   position: Associate System Operations Engineer
+  description:
+    - Ramped on a large-scale ad-tech operations stack covering compute, monitoring, and configuration management
+    - Triaged production issues across geographically distributed datacenters during shadow and active on-call shifts
+    - Wrote ops scripts and small tools to accelerate common manual workflows
+    - Contributed to runbooks and onboarding documentation as the team grew
 
 - company: RUniteCS
   url: https://www.linkedin.com/company/runitecs/about/
   time: Sep 2017 - Aug 2019
   position: Ambassador
+  description:
+    - Represented women-in-CS initiatives at Rutgers, organizing community events and tech workshops
+    - Mentored new students through their first CS coursework, hosting study sessions and code reviews
+    - Coordinated speaker engagements and outreach with industry partners
 
 - company: AppNexus
   url: https://www.linkedin.com/company/appnexus/
   time: Jun 2018 - Aug 2018
   position: System Operations Intern
+  description:
+    - Built internal tooling for the systems operations team in Python and Bash
+    - Shadowed on-call rotation for a large-scale ad-tech infrastructure across multiple datacenters
+    - Delivered an end-of-summer project improving monitoring / automation workflows
 
 - company: Prudential Financial
   url: https://www.prudential.com/
   time: May 2017 - Aug 2017
   position: Software Engineering Intern
+  description:
+    - Contributed full-stack features to enterprise web applications on the MEAN stack (MongoDB, Express, Angular, Node.js)
+    - Built and tested production-bound components shipped to internal users
+    - Participated in agile ceremonies (standups, sprint planning, retros) on a full-time delivery team
 
 - company: Viacom
   url: https://www.viacomcbs.com/
   time: Jan 2016 - Sep 2016
   position: Software Engineering Intern
+  description:
+    - Built features for internal media-pipeline tooling on the MERN stack (MongoDB, Express, React, Node.js)
+    - Worked across full-stack tickets supporting content production workflows
+    - Participated in design discussions and code reviews alongside permanent engineering staff
