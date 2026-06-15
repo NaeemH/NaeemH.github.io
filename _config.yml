@@ -2,11 +2,11 @@
 name: Naeem Hossain
 title: Naeem Hossain | Systems & Software Engineer
 description: I automate technical debt, ensure our distributed fleet is running, and write too many config files
-url: https://NaeemH.github.io/
+url: https://naeemh.github.io/
 baseurl: ''
 email: naeemhossain.mail@gmail.com
-cover: https://NaeemH.github.io/img/og2.png
-logo: https://NaeemH.github.io/images/favicon.ico
+cover: https://naeemh.github.io/img/og2.png
+logo: https://naeemh.github.io/images/favicon.ico
 resume: https://docs.google.com/document/d/1d-88RdBhhV0KIrwrXidZa6YKKApXPO1EpkB2Vez7Lf0/preview
 social:
   - title: resume
@@ -38,6 +38,5 @@ keep_files:
   - '.git'
   - '.gitignore'
 
-plugins_dir:
-  - jekyll-minifier
+plugins:
   - jekyll-sitemap
