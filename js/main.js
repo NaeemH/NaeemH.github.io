@@ -1,26 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const d = new Date();
-  const hours = d.getHours();
-  const night = hours >= 19 || hours <= 7; // between 7pm and 7am
-  const body = document.querySelector('body');
-  const toggle = document.getElementById('toggle');
-  const input = document.getElementById('switch');
-
-  if (night && input) {
-    input.checked = true;
-    body.classList.add('night');
-  }
-
-  if (toggle && input) {
-    toggle.addEventListener('click', function() {
-      if (input.checked) {
-        body.classList.remove('night');
-      } else {
-        body.classList.add('night');
-      }
-    });
-  }
-
   const intro = document.querySelector('.intro');
   const introHeight = intro ? intro.offsetHeight : 0;
   const topButton = document.getElementById('top-button');
