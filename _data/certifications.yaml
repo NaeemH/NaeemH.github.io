@@ -1,8 +1,6 @@
 certifications:
-  - item: RHCSA
-  - item: RHCE
-  - item: PCEP
-  - item: CSS/Sass
-  - item: Python
-  - item: SQL
-  - item: R
+  - item: Microsoft Certified: Azure Fundamentals (AZ-900)
+  - item: Microsoft Certified: Azure Administrator Associate (AZ-104)
+  - item: Sumo Logic Certified Fundamentals
+  - item: Sumo Logic Certified Power User
+  - item: Sumo Logic Certified Power Admin
