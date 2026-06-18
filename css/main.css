@@ -2,3 +2,8 @@
 body.night .section__title,body.night .other-projects .project__used__item{color:#4dabff;border-color:#4dabff}
 body.night .footer__links a{color:#4dabff!important}
 body.night .footer__links a:after{background:#4dabff}
+/* Polish (Push #11): contrast + CLS reservations */
+body.night .intro__currently .currently-label{color:#4dabff}
+.intro__currently{min-height:3em}
+@media screen and (max-width:550px){.intro__currently{min-height:4.5em}}
+#header .avatar img{aspect-ratio:1/1}
