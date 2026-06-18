@@ -7,7 +7,10 @@ layout: compress
   {% include head.html %}
 </head>
 <body class="night">
-  {{ content }}
+  {% include theme-toggle.html %}
+  <main id="main">
+    {{ content }}
+  </main>
   {% include scripts.html %}
 </body>
 </html>

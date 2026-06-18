@@ -1,4 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // ---------------------------------------------------------------
+  // Theme toggle (dark by default, persists choice in localStorage)
+  // ---------------------------------------------------------------
+  const switchEl = document.getElementById('switch');
+  const body = document.body;
+  try {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'day') {
+      body.classList.remove('night');
+      if (switchEl) switchEl.checked = false;
+    } else {
+      body.classList.add('night');
+      if (switchEl) switchEl.checked = true;
+    }
+  } catch (e) { /* localStorage unavailable: keep default night */ }
+
+  if (switchEl) {
+    switchEl.addEventListener('change', function() {
+      if (switchEl.checked) {
+        body.classList.add('night');
+        try { localStorage.setItem('theme', 'night'); } catch (e) {}
+      } else {
+        body.classList.remove('night');
+        try { localStorage.setItem('theme', 'day'); } catch (e) {}
+      }
+    });
+  }
+
+  // ---------------------------------------------------------------
+  // Scroll-to-top button visibility + click handler
+  // ---------------------------------------------------------------
   const intro = document.querySelector('.intro');
   const introHeight = intro ? intro.offsetHeight : 0;
   const topButton = document.getElementById('top-button');
