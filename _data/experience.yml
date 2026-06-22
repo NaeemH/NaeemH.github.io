@@ -45,6 +45,7 @@
     - Used Puppet, Kubernetes / Docker, and NGINX load balancers to manage infrastructure
 
 - company: Prudential Experimental Laboratory
+  short_name: Prudential
   url: https://www.prudential.com/
   time: May 2017 - Aug 2017
   position: Software Development Intern
@@ -55,6 +56,7 @@
     - Built data visualization applications with D3 and Tableau
 
 - company: Viacom Media Networks
+  short_name: Viacom
   url: https://www.viacomcbs.com/
   time: Jan 2016 - Sep 2016
   position: Software Development Intern
