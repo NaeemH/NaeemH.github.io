@@ -7,3 +7,13 @@ body.night .intro__currently .currently-label{color:#4dabff}
 .intro__currently{min-height:3em}
 @media screen and (max-width:550px){.intro__currently{min-height:4.5em}}
 #header .avatar img{aspect-ratio:1/1}
+/* Packages / published-work section (added 2026-06-22) */
+.packages .package{margin-bottom:50px}
+.packages .package:last-of-type{margin-bottom:0}
+.packages .package .project__name{margin-bottom:10px;font-weight:700}
+.package__install{font-family:Inconsolata,monospace;font-size:.85rem;background:#f3f4f6;color:#36363c;padding:10px 14px;border-radius:4px;margin:10px 0 12px;overflow-x:auto;border-left:3px solid #007bff}
+.package__install code{background:transparent;padding:0;color:inherit}
+.package__links{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:14px}
+.package__links .arrow-link{font-size:.9rem}
+body.night .package__install{background:#222b3a;color:#e7e7e7;border-left-color:#4dabff}
+body.night .packages .project__name{color:#e7e7e7}

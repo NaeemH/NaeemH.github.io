@@ -1,13 +1,3 @@
-- name: azkv-ssh-fetch
-  url: https://github.com/NaeemH/azkv-ssh-fetch
-  description: Python CLI that pulls SSH private keys from Azure Key Vault and connects to VMs / VMSS instances through Azure Bastion &mdash; one command, atomic writes, mode 0600.
-  used:
-    - thing: Python
-    - thing: Typer
-    - thing: Azure SDK
-    - thing: Azure Key Vault
-    - thing: Azure Bastion
-
 - name: NemoNet
   url: https://github.com/NaeemH/NemoNet
   description: Convolutional neural net trained to recognize wildlife fish &mdash; including everyone's favorite clownfish.
