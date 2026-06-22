@@ -12,3 +12,18 @@
     - thing: Azure SDK
     - thing: Azure Key Vault
     - thing: Azure Bastion
+
+- name: avnm-pool-cidr
+  description: Python CLI that picks the next free CIDR prefix from an Azure Virtual Network Manager IPAM pool, plus subcommands to list pool reservations and report per-prefix utilization. Removes the manual portal arithmetic.
+  install: pipx install avnm-pool-cidr
+  links:
+    - label: PyPI
+      url: https://pypi.org/project/avnm-pool-cidr/
+    - label: GitHub
+      url: https://github.com/NaeemH/avnm-pool-cidr
+  used:
+    - thing: Python
+    - thing: Typer
+    - thing: Azure CLI
+    - thing: Azure Virtual Network Manager
+    - thing: IPAM
