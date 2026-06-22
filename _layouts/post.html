@@ -1,0 +1,57 @@
+---
+layout: default
+---
+<article class="section writing-post">
+  <div class="section__title">{{ page.date | date: "%b %Y" }}</div>
+  <div class="section__content">
+    <header class="writing-post__header">
+      <h1 class="writing-post__title">{{ page.title }}</h1>
+      {% if page.subtitle %}
+      <p class="writing-post__subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+      <p class="writing-post__meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        {% if page.reading_time %} &middot; {{ page.reading_time }} min read{% endif %}
+        {% if page.tags %}
+        <span class="writing-post__tags">
+          {% for tag in page.tags %}<span class="writing-post__tag">{{ tag }}</span>{% endfor %}
+        </span>
+        {% endif %}
+      </p>
+    </header>
+
+    <div class="writing-post__body">
+      {{ content }}
+    </div>
+
+    <nav class="writing-post__nav">
+      <a href="/writing/" class="arrow-link">All writing</a>
+      <a href="/" class="arrow-link">Back home</a>
+    </nav>
+  </div>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: site.description | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "Naeem Hossain",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Naeem Hossain",
+    "url": "{{ site.url }}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  }
+}
+</script>

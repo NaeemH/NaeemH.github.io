@@ -1,0 +1,30 @@
+---
+layout: default
+title: Writing
+permalink: /writing/
+---
+<section class="section writing-index">
+  <div class="section__title">Writing</div>
+  <div class="section__content">
+    {% if site.posts.size == 0 %}
+    <p>No posts yet. Subscribe to the <a href="/feed.xml" class="arrow-link">RSS feed</a> for new pieces.</p>
+    {% else %}
+    <ul class="writing-list">
+      {% for post in site.posts %}
+      <li class="writing-list__item">
+        <a href="{{ post.url }}" class="writing-list__title">{{ post.title }}</a>
+        <p class="writing-list__meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        </p>
+        {% if post.description %}
+        <p class="writing-list__desc">{{ post.description }}</p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="writing-index__feed">
+      <a href="/feed.xml" class="arrow-link">RSS feed</a>
+    </p>
+    {% endif %}
+  </div>
+</section>
