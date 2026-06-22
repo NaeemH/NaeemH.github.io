@@ -1,0 +1,14 @@
+- name: azkv-ssh-fetch
+  description: Python CLI that pulls SSH private keys from Azure Key Vault and connects to VMs / VMSS instances through Azure Bastion. Atomic key writes with mode 0600, optional key shred on disconnect, full <code>az</code> CLI integration.
+  install: pipx install azkv-ssh-fetch
+  links:
+    - label: PyPI
+      url: https://pypi.org/project/azkv-ssh-fetch/
+    - label: GitHub
+      url: https://github.com/NaeemH/azkv-ssh-fetch
+  used:
+    - thing: Python
+    - thing: Typer
+    - thing: Azure SDK
+    - thing: Azure Key Vault
+    - thing: Azure Bastion

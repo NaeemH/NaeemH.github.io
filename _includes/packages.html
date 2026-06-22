@@ -1,0 +1,24 @@
+<section class="section other-projects packages">
+  <div class="section__title">Published</div>
+  <div class="section__content">
+    {% for pkg in site.data.packages %}
+    <div class="project package">
+      <div class="project__name">{{ pkg.name }}</div>
+      <p>{{ pkg.description }}</p>
+      {% if pkg.install %}
+      <pre class="package__install" aria-label="install command"><code>{{ pkg.install }}</code></pre>
+      {% endif %}
+      <div class="package__links">
+        {% for link in pkg.links %}
+        <a href="{{ link.url }}" target="_blank" rel="noopener" class="arrow-link">{{ link.label }}</a>
+        {% endfor %}
+      </div>
+      <div class="project__used">
+        {% for item in pkg.used %}
+        <span class="project__used__item">{{ item.thing }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
