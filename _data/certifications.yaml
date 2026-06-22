@@ -1,6 +1,15 @@
-certifications:
-  - item: "Microsoft Certified: Azure Fundamentals (AZ-900)"
-  - item: "Microsoft Certified: Azure Administrator Associate (AZ-104)"
-  - item: Sumo Logic Certified Fundamentals
-  - item: Sumo Logic Certified Power User
-  - item: Sumo Logic Certified Power Admin
+groups:
+  - provider: "Microsoft Certified"
+    items:
+      - name: "Azure Administrator Associate (AZ-104)"
+        url: "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/"
+      - name: "Azure Fundamentals (AZ-900)"
+        url: "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/"
+  - provider: "Sumo Logic Certified"
+    items:
+      - name: "Power Admin"
+        url: "https://www.sumologic.com/learn/certifications/"
+      - name: "Power User"
+        url: "https://www.sumologic.com/learn/certifications/"
+      - name: "Fundamentals"
+        url: "https://www.sumologic.com/learn/certifications/"

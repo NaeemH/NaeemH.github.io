@@ -40,11 +40,6 @@
     <span>
       <a href="mailto:naeemhossain.mail@gmail.com" target="_blank" class="highlight-link">NaeemHossain.mail@gmail.com</a>
     </span>
-    {% if site.posts.size > 0 %}
-    <span class="intro__writing-link">
-      &middot; <a href="/writing/" class="highlight-link">Writing</a>
-    </span>
-    {% endif %}
   </h3>
   <!-- <div class='li'> -->
     <footer class="footer">
@@ -55,6 +50,12 @@
           <img src="{{site.baseurl}}/img/social/{{link.title}}.svg" alt="{{link.title}}" width="22" height="22">
         </a>
         {% endfor %}
+        {% if site.posts.size > 0 %}
+        <a href="{{site.baseurl}}/writing/" title="writing">
+          <span class="text">writing</span>
+          <img src="{{site.baseurl}}/img/social/writing.svg" alt="writing" width="22" height="22">
+        </a>
+        {% endif %}
       </div>
     </footer>
   <!--  </div> -->
