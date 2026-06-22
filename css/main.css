@@ -17,3 +17,43 @@ body.night .intro__currently .currently-label{color:#4dabff}
 .package__links .arrow-link{font-size:.9rem}
 body.night .package__install{background:#222b3a;color:#e7e7e7;border-left-color:#4dabff}
 body.night .packages .project__name{color:#e7e7e7}
+
+/* Writing / blog post styles (added 2026-06-22) */
+.writing-list{list-style:none;padding:0;margin:0}
+.writing-list__item{margin-bottom:32px}
+.writing-list__item:last-of-type{margin-bottom:0}
+.writing-list__title{font-weight:700;font-size:1.1rem;display:inline-block;margin-bottom:4px}
+.writing-list__meta{font-family:Inconsolata,monospace;font-size:.8rem;color:#666;margin:0 0 6px}
+.writing-list__desc{font-size:.95rem;margin:0}
+.writing-index__feed{margin-top:30px;font-size:.85rem}
+body.night .writing-list__meta{color:#9a9ab0}
+.writing-post__header{margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #e5e5e5}
+body.night .writing-post__header{border-bottom-color:#2a3344}
+.writing-post__title{font-size:1.8rem;font-weight:700;margin:0 0 8px;line-height:1.25}
+.writing-post__subtitle{font-size:1.05rem;font-weight:300;color:#666;margin:0 0 14px;line-height:1.4}
+body.night .writing-post__subtitle{color:#afafbf}
+.writing-post__meta{font-family:Inconsolata,monospace;font-size:.8rem;color:#666;margin:0}
+body.night .writing-post__meta{color:#9a9ab0}
+.writing-post__tags{margin-left:8px}
+.writing-post__tag{display:inline-block;margin-right:6px;padding:1px 7px;border-radius:3px;color:#007bff;border:1px solid #007bff;font-size:.7rem;letter-spacing:1px;text-transform:uppercase}
+body.night .writing-post__tag{color:#4dabff;border-color:#4dabff}
+.writing-post__body{font-size:1rem;line-height:1.7}
+.writing-post__body h2{font-size:1.3rem;font-weight:700;margin-top:36px;margin-bottom:14px;color:#36363c}
+body.night .writing-post__body h2{color:#e7e7e7}
+.writing-post__body h3{font-size:1.1rem;font-weight:700;margin-top:28px;margin-bottom:10px}
+.writing-post__body p{margin:0 0 18px}
+.writing-post__body ul,.writing-post__body ol{padding-left:24px;margin:0 0 18px}
+.writing-post__body li{margin-bottom:6px}
+.writing-post__body a{color:#007bff;font-weight:400;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+body.night .writing-post__body a{color:#4dabff}
+.writing-post__body code{font-family:Inconsolata,monospace;font-size:.9em;background:#f3f4f6;color:#36363c;padding:1px 6px;border-radius:3px}
+body.night .writing-post__body code{background:#222b3a;color:#e7e7e7}
+.writing-post__body pre{background:#f3f4f6;color:#36363c;padding:14px 16px;border-radius:4px;overflow-x:auto;border-left:3px solid #007bff;font-size:.85rem;line-height:1.5;margin:0 0 18px}
+.writing-post__body pre code{background:transparent;padding:0;font-size:inherit}
+body.night .writing-post__body pre{background:#222b3a;color:#e7e7e7;border-left-color:#4dabff}
+.writing-post__body blockquote{margin:0 0 18px;padding:10px 18px;border-left:3px solid #007bff;background:#f9fafb;color:#555;font-style:italic}
+body.night .writing-post__body blockquote{background:#1c2230;color:#cfcfd9;border-left-color:#4dabff}
+.writing-post__body hr{border:none;border-top:1px solid #e5e5e5;margin:30px 0}
+body.night .writing-post__body hr{border-top-color:#2a3344}
+.writing-post__nav{margin-top:40px;padding-top:20px;border-top:1px solid #e5e5e5;display:flex;gap:30px;flex-wrap:wrap}
+body.night .writing-post__nav{border-top-color:#2a3344}

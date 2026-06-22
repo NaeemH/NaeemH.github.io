@@ -34,3 +34,18 @@ keep_files:
 
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Permalink for posts: /writing/<slug>/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /writing/:slug/
+
+# RSS feed (jekyll-feed)
+feed:
+  path: feed.xml
