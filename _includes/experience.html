@@ -12,7 +12,7 @@
                   aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
                   aria-controls="exp-panel-{{forloop.index0}}"
                   tabindex="{% if forloop.first %}0{% else %}-1{% endif %}">
-            {{ job.company }}
+            {{ job.short_name | default: job.company }}
           </button>
         </li>
         {% endfor %}
@@ -50,8 +50,8 @@
 
 <script>
   (function () {
-    // Progressive-enhancement: only enable tabbed UI when JS is on.
-    // No-JS users see all panels stacked.
+    /* Progressive-enhancement: only enable tabbed UI when JS is on. */
+    /* No-JS users see all panels stacked. */
     var roots = document.querySelectorAll('[data-exp-tabs]');
     roots.forEach(function (root) {
       root.classList.add('exp-tabs--js');
