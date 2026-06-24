@@ -27,3 +27,19 @@
     - thing: Azure CLI
     - thing: Azure Virtual Network Manager
     - thing: IPAM
+
+- name: azaks-conn
+  description: Python CLI that fetches AKS kubeconfigs via <code>az aks get-credentials</code> and merges them into <code>~/.kube/config</code> under a short alias. Tracks cluster / RG / subscription / admin metadata in a state file so <code>refresh</code>, <code>list</code>, <code>verify</code>, and <code>rm</code> work without retyping arguments. Admin (cluster-certificate) contexts are clearly flagged in <code>list</code> and re-warned on <code>verify</code> so they aren't accidentally shared.
+  install: pipx install azaks-conn
+  links:
+    - label: PyPI
+      url: https://pypi.org/project/azaks-conn/
+    - label: GitHub
+      url: https://github.com/NaeemH/azaks-conn
+  used:
+    - thing: Python
+    - thing: Typer
+    - thing: Rich
+    - thing: Azure CLI
+    - thing: AKS
+    - thing: kubectl
