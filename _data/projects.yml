@@ -1,3 +1,24 @@
+- name: terraform-cdk-constructs (Azure Bastion Host)
+  url: https://github.com/NaeemH/terraform-cdk-constructs/tree/feat/azure-bastion-host/src/azure-bastionhost
+  description: Open-source L3 CDKTF construct contributed to Microsoft's <code>terraform-cdk-constructs</code> library &mdash; a typed Azure Bastion Host resource (Standard &amp; Developer SKUs, configurable scale units, feature-flag toggles) with API-version schema validation, unit and integration tests, and generated API docs.
+  used:
+    - thing: TypeScript
+    - thing: CDKTF
+    - thing: jsii
+    - thing: AzAPI
+    - thing: Azure Bastion
+    - thing: Jest
+
+- name: naeemh.github.io
+  url: https://github.com/NaeemH/NaeemH.github.io
+  description: This site &mdash; a data-driven Jekyll portfolio with a dark-mode toggle, JSON-LD structured-data SEO, a <code>/writing/</code> blog, and YAML-sourced experience, projects, and skills. Auto-deployed via GitHub Pages.
+  used:
+    - thing: Jekyll
+    - thing: Liquid
+    - thing: SCSS
+    - thing: JavaScript
+    - thing: GitHub Pages
+
 - name: NemoNet
   url: https://github.com/NaeemH/NemoNet
   description: Convolutional neural net trained to recognize wildlife fish &mdash; including everyone's favorite clownfish.
