@@ -16,35 +16,93 @@ reading_time: 8
 
 ## The "upload my public key" antipattern
 
-> *<!-- TODO: 2-3 paragraphs on the failure mode. Story about somebody emailing
-> their pubkey in Slack, the operator pasting it into the wrong VMSS, the
-> rotation nightmare that follows. Hint: every fresh engineer asks for this.
-> -->*
+The pattern I see at almost every company goes like this. A new engineer needs
+SSH access to a Linux scale set. They generate a keypair on their laptop, paste
+the public half into Slack, and an operator copies it into the VMSS
+`admin_ssh_key` block &mdash; or worse, runs a one-off `az vmss extension` to
+inject it into a live fleet. Multiply that by every engineer and every scale set.
+
+Three things rot immediately:
+
+- **Sprawl.** Nobody knows which keys are authorized on which fleet. The
+  `admin_ssh_key` list grows append-only, because removing an entry risks
+  locking out someone who is still using it.
+- **No rotation story.** The private keys live on laptops forever. When someone
+  leaves, their key stays trusted until a human remembers to prune it by hand.
+- **No audit trail.** "Who SSH'd into prod last Tuesday?" has no answer, because
+  access is keyed to a credential nobody ever tracked.
+
+And every fresh engineer asks for exactly this workflow, so the antipattern
+reproduces itself faster than you can write down the alternative.
 
 ## The right model in one diagram
 
-> *<!-- TODO: ASCII or simple mermaid diagram showing:
->   Terraform → tls_private_key + azurerm_key_vault_secret
->   Human → RBAC (Key Vault Secrets User) → KV secret → akf fetch
->   Human → Azure Bastion → VMSS (port 22)
-> Key insight: the private key is never in source control, never in chat,
-> never on a workstation longer than needed.
-> -->*
+```text
+  ┌───────────────────────── Terraform (CDKTF) ─────────────────────────┐
+  │                                                                      │
+  │   tls_private_key ──┬── public key  ──▶  VMSS admin_ssh_key          │
+  │                     └── private key ──▶  Key Vault secret (PEM)      │
+  │                                                                      │
+  │   role_assignment: "Key Vault Secrets User"  ──▶  on-call AAD group  │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  Operator (just-in-time):
+
+     akf fetch ──▶ [RBAC check] ──▶ Key Vault secret ──▶ ~/.ssh/key (0600)
+                                                            │
+                                                            ▼
+                       Azure Bastion tunnel ──▶ VMSS instance :22
+```
+
+The key insight: the private key is generated inside Terraform state, stored
+once in Key Vault, and pulled to a workstation just-in-time. It is never in
+source control, never in a chat message, and never on a laptop longer than the
+length of a session.
 
 ## Minimal CDKTF snippet
 
-> *<!-- TODO: ~30 lines of TypeScript showing:
->   - generating tls_private_key
->   - writing public key to vmss admin_ssh_key
->   - writing private key to KV as a secret with content_type 'application/x-pem-file'
->   - role_assignment block granting a group 'Key Vault Secrets User'
-> Keep it copy-paste-able. Real names, masked subs.
-> -->*
+Here is the whole pattern in one stack. Names are real-shaped; drop in your own
+Key Vault, image, and the object ID of the AAD group that should hold access.
 
 ```typescript
-// TODO: paste production-shaped snippet here.
-// Replace with your actual stack name + group object ID.
+import { PrivateKey } from "@cdktf/provider-tls/lib/private-key";
+import { KeyVaultSecret } from "@cdktf/provider-azurerm/lib/key-vault-secret";
+import { RoleAssignment } from "@cdktf/provider-azurerm/lib/role-assignment";
+import { LinuxVirtualMachineScaleSet } from "@cdktf/provider-azurerm/lib/linux-virtual-machine-scale-set";
+
+// 1. Generate the keypair inside Terraform state — never on a laptop.
+const sshKey = new PrivateKey(this, "vmss-ssh", {
+  algorithm: "RSA",
+  rsaBits: 4096,
+});
+
+// 2. Hand the *public* half to the scale set's admin user.
+new LinuxVirtualMachineScaleSet(this, "vmss", {
+  name: "prod-myteam-vmss",
+  // ...sku, instances, sourceImageId, network config omitted...
+  adminUsername: "azureuser",
+  adminSshKey: [{ username: "azureuser", publicKey: sshKey.publicKeyOpenssh }],
+  disablePasswordAuthentication: true,
+});
+
+// 3. Store the *private* half in Key Vault as a PEM secret.
+const secret = new KeyVaultSecret(this, "vmss-ssh-secret", {
+  name: "my-vmss-ssh",
+  keyVaultId: keyVault.id,
+  value: sshKey.privateKeyPem,
+  contentType: "application/x-pem-file",
+});
+
+// 4. Grant humans read access via RBAC — no access policies, no shared creds.
+new RoleAssignment(this, "ssh-readers", {
+  scope: secret.resourceManagerId,
+  roleDefinitionName: "Key Vault Secrets User",
+  principalId: onCallGroupObjectId, // an AAD group, ideally PIM-eligible
+});
 ```
+
+The private key never leaves Terraform except into Key Vault. No engineer ever
+types `ssh-keygen`; no public key is ever pasted anywhere.
 
 ## What this buys you
 
@@ -56,10 +114,18 @@ reading_time: 8
 
 ## The operator side: `akf`
 
-> *<!-- TODO: 2-3 paragraphs introducing the tool. Note that the post +
-> the tool are intentionally complementary &mdash; post explains the infra
-> pattern, tool removes the daily-driver friction.
-> -->*
+The infrastructure pattern above is only half the story. Once the private key
+lives in Key Vault behind RBAC, someone still has to pull it, drop it on disk
+with the right permissions, and pipe it through Bastion to reach an instance
+that has no public IP. Done by hand that is a six-line snippet every engineer
+re-types &mdash; and gets subtly wrong: wrong file mode, key left on disk after
+the session, wrong `--target-id`.
+
+`azkv-ssh-fetch` (`akf`) is the operator-side companion to this post: the post
+explains the infra pattern, the tool removes the daily-driver friction. It is
+deliberately dumb &mdash; it does not manage any infrastructure, it just
+consumes it. If your Terraform follows the model above, `akf` works against it
+with zero extra configuration.
 
 The operator workflow described above used to be a six-line shell snippet that
 every engineer re-typed (and got wrong) every time. I wrote
@@ -87,13 +153,24 @@ Source: [github.com/NaeemH/azkv-ssh-fetch](https://github.com/NaeemH/azkv-ssh-fe
 
 ## Gotchas
 
-> *<!-- TODO: bulleted list. Drafts:
->   - KV name length cap (24 chars) bites when you template names
->   - Bastion *Standard* SKU minimum for native-client tunneling
->   - VMSS image must have password auth disabled or this whole model is theater
->   - Don't store the private key with content_type other than 'application/x-pem-file' — KV will let you, but tools may not filter it
->   - SIG image generation mismatch (Gen1 vs Gen2) — separate post material
-> -->*
+A few things that bit me setting this up:
+
+- **Key Vault name length.** Vault names cap at 24 characters. If you template
+  them as `<env>-<team>-<region>-kv` you will blow the budget fast &mdash; settle
+  the naming scheme before you scale it out.
+- **Bastion SKU.** Native-client tunneling (`az network bastion ssh` and the
+  `akf connect` path) needs the **Standard** SKU. Basic only gives you the
+  browser portal, which you cannot script against.
+- **Password auth must be off.** Set `disablePasswordAuthentication: true` on the
+  scale set. If the image still accepts passwords, the whole key-in-vault model
+  is theater.
+- **Content type matters.** Store the private key with
+  `content_type: "application/x-pem-file"`. Key Vault will accept any content
+  type, but tooling (including `akf list`) filters on it to tell SSH secrets
+  apart from everything else in the vault.
+- **Gen1 vs Gen2 images.** A generation mismatch between your Shared Image
+  Gallery version and the VMSS SKU fails the deploy in a way that looks
+  unrelated to SSH &mdash; that one is its own post.
 
 ## Further reading
 
