@@ -7,7 +7,7 @@ languages:
   - item: SQL
   - item: JavaScript
 
-dm:
+infrastructure:
   - item: Azure
   - item: Kubernetes
   - item: Docker
@@ -17,7 +17,7 @@ dm:
   - item: Ansible
   - item: Helm
 
-wm:
+workflows:
   - item: Git (GitHub, Azure DevOps)
   - item: GitHub Actions
   - item: Azure DevOps Pipelines
@@ -31,7 +31,7 @@ ai:
   - item: Gemini
   - item: GPT
 
-ose:
+operating_systems:
   - item: Ubuntu (20.04 - 24.04)
   - item: RHEL / Debian
   - item: macOS
