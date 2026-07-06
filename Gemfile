@@ -13,6 +13,11 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"
 end
 
+# CI-only: link/HTML checking for the PR preview workflow.
+group :test do
+  gem "html-proofer", "~> 5.0"
+end
+
 # Windows and JRuby do not include zoneinfo files, so bundle tzinfo-data.
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
