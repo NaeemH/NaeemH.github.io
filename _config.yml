@@ -26,6 +26,8 @@ exclude:
   - 'Gemfile.lock'
   - '*.gemspec'
   - 'README.md'
+  - 'vendor'
+  - '.github'
 
 keep_files:
   - 'CNAME'
