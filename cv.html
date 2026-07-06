@@ -167,10 +167,10 @@ description: "Printable CV / résumé for Naeem Hossain — experience, skills, 
   <section class="cv__section">
     <h2 class="cv__section-title">Skills</h2>
     <div class="cv__skill-row"><span class="cv__skill-label">Languages</span>{% for x in site.data.skills.languages %}{{ x.item }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
-    <div class="cv__skill-row"><span class="cv__skill-label">Distributed</span>{% for x in site.data.skills.dm %}{{ x.item }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
-    <div class="cv__skill-row"><span class="cv__skill-label">Workflows</span>{% for x in site.data.skills.wm %}{{ x.item }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
+    <div class="cv__skill-row"><span class="cv__skill-label">Distributed</span>{% for x in site.data.skills.infrastructure %}{{ x.item }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
+    <div class="cv__skill-row"><span class="cv__skill-label">Workflows</span>{% for x in site.data.skills.workflows %}{{ x.item }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
     <div class="cv__skill-row"><span class="cv__skill-label">AI</span>{% for x in site.data.skills.ai %}{{ x.item }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
-    <div class="cv__skill-row"><span class="cv__skill-label">OS</span>{% for x in site.data.skills.ose %}{{ x.item }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
+    <div class="cv__skill-row"><span class="cv__skill-label">OS</span>{% for x in site.data.skills.operating_systems %}{{ x.item }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
   </section>
 
   <section class="cv__section">

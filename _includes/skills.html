@@ -14,7 +14,7 @@
       <div class="skillz__category">
         <div class="skillz__category__label">Distributed</div>
         <ul>
-          {% for tool in site.data.skills.dm %}
+          {% for tool in site.data.skills.infrastructure %}
           <li class="skillz__category__item">{{tool.item}}</li>
           {% endfor %}
         </ul>
@@ -22,7 +22,7 @@
       <div class="skillz__category">
         <div class="skillz__category__label">Workflows</div>
         <ul>
-          {% for workflow in site.data.skills.wm %}
+          {% for workflow in site.data.skills.workflows %}
           <li class="skillz__category__item">{{workflow.item}}</li>
           {% endfor %}
         </ul>
@@ -38,7 +38,7 @@
       <div class="skillz__category">
         <div class="skillz__category__label">OS</div>
         <ul>
-          {% for thing in site.data.skills.ose %}
+          {% for thing in site.data.skills.operating_systems %}
           <li class="skillz__category__item">{{thing.item}}</li>
           {% endfor %}
         </ul>
