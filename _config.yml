@@ -18,6 +18,12 @@ social:
   - title: email
     url: mailto:naeemhossain.mail@gmail.com
 
+# Photography portfolio link — shows a "photography" icon in the intro + footer
+# social rows once a URL is set. Point it at your public gallery/profile
+# (Instagram, Flickr, a Google Photos shared album, a portfolio host, etc.).
+# Leave empty to keep the link hidden; no photos are uploaded to this repo.
+photography:
+
 # Build settings
 markdown: kramdown
 

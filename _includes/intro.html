@@ -50,6 +50,12 @@
           <img src="{{site.baseurl}}/img/social/{{link.title}}.svg" alt="{{link.title}}" width="22" height="22">
         </a>
         {% endfor %}
+        {% if site.photography %}
+        <a href="{{ site.photography }}" target="_blank" rel="noopener" title="photography">
+          <span class="text">photography</span>
+          <img src="{{site.baseurl}}/img/social/photography.svg" alt="photography" width="22" height="22">
+        </a>
+        {% endif %}
       </div>
     </footer>
   <!--  </div> -->
