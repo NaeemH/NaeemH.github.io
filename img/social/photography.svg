@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" fill="#007BFF"
+     style="enable-background:new 0 0 512 512;" xml:space="preserve">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M186.7,80c-13.4,0-25.8,6.7-33.2,17.8L133.3,128H72
+        c-30.9,0-56,25.1-56,56v224c0,30.9,25.1,56,56,56h368c30.9,0,56-25.1,56-56V184c0-30.9-25.1-56-56-56
+        h-61.3l-20.2-30.2C351.1,86.7,338.7,80,325.3,80H186.7z M256,192c-53,0-96,43-96,96s43,96,96,96
+        s96-43,96-96S309,192,256,192z M256,240c26.5,0,48,21.5,48,48s-21.5,48-48,48s-48-21.5-48-48
+        S229.5,240,256,240z"/>
+</svg>
