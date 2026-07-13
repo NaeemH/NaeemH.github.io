@@ -1,0 +1,4 @@
+Contact: mailto:naeemhossain.mail@gmail.com
+Expires: 2027-07-13T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://naeemh.github.io/.well-known/security.txt

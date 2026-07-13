@@ -27,6 +27,11 @@ photography:
 # Build settings
 markdown: kramdown
 
+# Jekyll skips dot-folders by default; include .well-known so
+# /.well-known/security.txt (RFC 9116) is published.
+include:
+  - '.well-known'
+
 exclude:
   - 'Gemfile'
   - 'Gemfile.lock'
