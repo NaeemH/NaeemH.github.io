@@ -1,3 +1,13 @@
+- name: kubelogin (Azure)
+  url: https://github.com/Azure/kubelogin/pull/793
+  description: Merged contribution to Microsoft's <code>kubelogin</code> &mdash; the Microsoft Entra ID (Azure AD) credential plugin for kubectl. Added unit-test coverage for the client-certificate PEM / PKCS#12 authentication path (cert-parsing helpers 0&nbsp;&rarr;&nbsp;100%) and confirmed &amp; helped close a stale feature request.
+  used:
+    - thing: Go
+    - thing: testify
+    - thing: Microsoft Entra ID
+    - thing: PKCS#12
+    - thing: kubectl
+
 - name: terraform-cdk-constructs (Azure Bastion Host)
   url: https://github.com/NaeemH/terraform-cdk-constructs/tree/feat/azure-bastion-host/src/azure-bastionhost
   description: Open-source L3 CDKTF construct contributed to Microsoft's <code>terraform-cdk-constructs</code> library &mdash; a typed Azure Bastion Host resource (Standard &amp; Developer SKUs, configurable scale units, feature-flag toggles) with API-version schema validation, unit and integration tests, and generated API docs.
