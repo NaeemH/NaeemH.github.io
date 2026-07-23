@@ -1,6 +1,6 @@
 - name: kubelogin (Azure)
-  url: https://github.com/Azure/kubelogin/pull/793
-  description: Merged contribution to Microsoft's <code>kubelogin</code> &mdash; the Microsoft Entra ID (Azure AD) credential plugin for kubectl. Added unit-test coverage for the client-certificate PEM / PKCS#12 authentication path (cert-parsing helpers 0&nbsp;&rarr;&nbsp;100%) and confirmed &amp; helped close a stale feature request.
+  url: https://github.com/Azure/kubelogin/pulls?q=is%3Apr+author%3ANaeemH+is%3Amerged
+  description: Two merged contributions to Microsoft's <code>kubelogin</code> &mdash; the Microsoft Entra ID (Azure AD) credential plugin for kubectl. Added unit-test coverage for the client-certificate PEM / PKCS#12 authentication path (cert-parsing helpers 0&nbsp;&rarr;&nbsp;100%) and for the authentication predicates across all 18 credential types, and confirmed &amp; helped close a stale feature request.
   used:
     - thing: Go
     - thing: testify
