@@ -38,6 +38,12 @@ jobs:
             --ignore-empty-alt \
             --no-enforce-https
 
+      - name: Lighthouse CI (perf / a11y / best-practices / SEO)
+        uses: treosh/lighthouse-ci-action@v12
+        continue-on-error: true
+        with:
+          configPath: ./lighthouserc.json
+
       - name: Upload built site as preview artifact
         uses: actions/upload-artifact@v7
         with:

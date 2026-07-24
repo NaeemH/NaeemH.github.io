@@ -39,6 +39,7 @@ exclude:
   - 'README.md'
   - 'vendor'
   - '.github'
+  - 'lighthouserc.json'
 
 keep_files:
   - 'CNAME'
