@@ -7,6 +7,11 @@ layout: compress
   {% include head.html %}
 </head>
 <body class="night">
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:0;z-index:1000;padding:10px 16px;background:#007bff;color:#fff;font-weight:700;text-decoration:none;border-radius:0 0 4px 0}
+    .skip-link:focus{left:0}
+  </style>
+  <a href="#main" class="skip-link">Skip to content</a>
   {% include theme-toggle.html %}
   <main id="main">
     {{ content }}
