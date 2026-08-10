@@ -1,0 +1,44 @@
+name: External link check
+
+# preview.yml runs html-proofer with --disable-external, which keeps PR CI fast
+# and immune to third-party flakiness -- but it means outbound links are never
+# checked at all. Links to PyPI projects, LinkedIn, GitHub repos and the resume
+# can rot silently for months. This runs the external half on a schedule, where
+# a transient third-party failure is an annoyance rather than a blocked PR.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  external-links:
+    name: Check outbound links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: Build site
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --config _config.yml --trace
+
+      - name: Check external links
+        run: |
+          bundle exec htmlproofer ./_site \
+            --disable-external false \
+            --ignore-status-codes "403,429,999" \
+            --allow-hash-href \
+            --ignore-empty-alt \
+            --no-enforce-https \
+            --hydra-config '{"max_concurrency": 5}'
