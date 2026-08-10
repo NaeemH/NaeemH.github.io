@@ -8,3 +8,14 @@ updates:
       interval: "weekly"
     commit-message:
       prefix: "ci"
+
+  # Gemfile / Gemfile.lock pin Jekyll (via github-pages) and html-proofer for
+  # both local builds and the PR preview workflow. Without this ecosystem they
+  # drift silently -- a stale html-proofer or github-pages gem is exactly the
+  # kind of thing that only surfaces as a confusing CI failure months later.
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "deps"
