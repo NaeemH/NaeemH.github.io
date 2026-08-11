@@ -36,9 +36,8 @@ jobs:
       - name: Check external links
         run: |
           bundle exec htmlproofer ./_site \
-            --disable-external false \
             --ignore-status-codes "403,429,999" \
             --allow-hash-href \
             --ignore-empty-alt \
             --no-enforce-https \
-            --hydra-config '{"max_concurrency": 5}'
+            --hydra '{"max_concurrency": 5}'
