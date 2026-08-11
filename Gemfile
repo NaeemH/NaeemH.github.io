@@ -15,7 +15,7 @@ end
 
 # CI-only: link/HTML checking for the PR preview workflow.
 group :test do
-  gem "html-proofer", "~> 5.0"
+  gem "html-proofer", "~> 5.2"
 end
 
 # Windows and JRuby do not include zoneinfo files, so bundle tzinfo-data.
