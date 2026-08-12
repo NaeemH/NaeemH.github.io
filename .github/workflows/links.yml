@@ -37,6 +37,7 @@ jobs:
         run: |
           bundle exec htmlproofer ./_site \
             --ignore-status-codes "403,429,999" \
+            --ignore-urls "https://fonts.googleapis.com,https://fonts.gstatic.com" \
             --allow-hash-href \
             --ignore-empty-alt \
             --no-enforce-https \
